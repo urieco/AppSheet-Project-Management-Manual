@@ -13,6 +13,10 @@
 ### Duplicate Email Check
 - Admin can add new emails to the system. However, it is disallowed to have email addresses that already exist in the system. There will be push notification on Android/iOS devices about the duplicate emails. 
 
+### Auto-assign Direct Reports of existing users.
+- When a new user have entered the value of "Direct Manager". The existing Manager will receive an email notification of their new "Direct Reports".
+- Manager's data will be updated with the new "Direct Reports". 
+
 ## Profile Images
 - Default Profiles Images automatically set at "appsheet/Employees-767296478/Images/default.png"
 - Profiles Images are saved in "appsheet/Employees-767296478/Images/".
@@ -22,3 +26,4 @@
 # Versions
 - 1.000022: Profile Images feature is completed.
 - 1.000054: Role_Ref, Status_Ref and Type_Ref
+- 1.000137: Update "Direct Manager" and "Direct Reports"

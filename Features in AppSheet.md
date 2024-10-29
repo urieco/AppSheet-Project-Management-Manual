@@ -1,18 +1,29 @@
 # Roles
 ## Admin Role
-Users with "Admin" role have access to all the options other roles have and more.
+Users with Admin role have access to all the options other roles have and more.
 
 ### Check if you have Admin role
 - Method 1: Check in the "Employees" view.
 - Method 2: Check if you have the "Admin View" option in the menu.
+
+### Admin View
+- A custom view for users with Admin role to view, add and delete certain built-in values:
+  - Employees' Role Ref: "Admin", "Project Management", "Human Resources",etc.
+  - Employees' Status Ref: "Active", "Inactive", "On Leave", etc.
+  - Employees' Employment Type Ref: "Full-time", "Part-time", "Contractor", etc.
+  - Employees Image: A gallery of all submitted employees' profile pictures.
+  - Jobs' Status Ref: "New Job", "Awaiting Clarification", "In Production", etc.
+  - Jobs' Priority Ref: "Low", "Medium", "High", etc.
+- **Limit**: 
+  - You can only edit existing Roles / Statuses / Types / ... in the Database sheet. However, it is not recommended as the Employees or Jobs that are affixed with those values will still hold the old value until you manually edit it. 
 
 ### Roles / Statuses / Types
 - Admin can create, delete Roles, Statuses and Types
   + Default Roles: **Specialist**, Admin, Human Resources, Project Management.
   + Default Statuses: **Active**, Inactive.
   + Default Types: **Full-time**, Part-time, Contractor.
-  + **Limit**: You can edit the existing roles/statuses/types, however you can only do it directly on the Google Sheets. And all the employees who use that role have to be edited to get the new role manually in the app interface.
   + You can't create new roles / statuses / types with the same name as existing ones.
+  + **Limit**: You can edit the existing roles/statuses/types, however you can only do it directly on the Google Sheets. And all the employees who use that role have to be edited to get the new role manually in the app interface.
 
 - Users assigned with new roles / statuses / types will have their roles automatically changed back to Default value when the new roles / statuses / types are deleted.
 
@@ -38,6 +49,8 @@ Users with "Admin" role have access to all the options other roles have and more
   - These users can also edit more of the Jobs' information after creation. 
   - Jobs with "Parent Project State" as "Inactive" can't have their statuses changed. Their information can't be changed. They need to have their parent Projects activated again. 
 
+# Employees
+- You can quickly navigate to the "Projects" that the Employee owns, the Jobs that the Employee is assigned to and the Notes that they have provided for certain Jobs.
 
 ## Profile Images
 - Default Profiles Image is automatically set to be "appsheet/Employees-767296478/Images/default.png" if no image is provided.
@@ -48,8 +61,81 @@ Users with "Admin" role have access to all the options other roles have and more
 - When a user is deleted, the profile image is also removed from the database. 
 - **Limit**: There is currently no method to name the image files with whatever names you want.
 
+# Projects
+- Shows a list of Projects.
+- New Projects have their "Project Number" set according to the number of Projects in the database. Ex: There are already 12 jobs in the database, new Jobs will start with their "Job Number" at 13. 
+- You can quickly navigate to the "Employees" from the "Project Owner" field.
+- Projects' detail pages also shows briefly all the jobs that belong to those Projects. 
+- Projects can be deactivated by Admin / Project Management role holders. Deactivated projects appear fainter than the rest. All the jobs under those Projects are disallowed from editing / changing status until that Projects are activated again. 
+
 # Jobs
-- Overdue jobs have their names colored red. 
+## Features
+- New Jobs have their "Job Number" set according to the number of Jobs in the database. Ex: There are already 12 jobs in the database, new Jobs will start with their "Job Number" at 13. 
+- Each status has a different symbol for users to quickly identify the status of the Job. 
+- Users logging into the app are greeted with "Jobs" View which showcases all Jobs.
+- "Ongoing Jobs" view displays 5 tabs:
+  - "Ongoing Jobs": displays Jobs that don't have their parent Projects set to "Inactive". Jobs that are not "On-Hold", "Cancelled" or "Completed".
+  - "Production": displays Jobs that are "New Job", "In Production" or "Edits Required".
+  - "Appraisal": displays Jobs that are "Awaiting Clarification", "To Be Approved", or "Approved".
+  - "On-Hold": displays Jobs that are "On-Hold".
+  - "Cancelled" or "Completed" Jobs are added to "Archived Jobs". 
+- Overdue Jobs have their names colored red. 
+- Completed Jobs have their names crossed.
+- When a Job is marked "Completed", their "Completed" value is updated to the time the Job is finished.
+- You can quickly navigate to the Parent Projects' detail pages and the assigned Employees' detail pages from the Jobs.
+
+## Workflow
+- All new Jobs are assigned status "New Job".
+- "New Job": Can be changed to:
+  - "In Production"
+  - "Awaiting Clarification"
+  - "On-Hold" (Admin / Project Management) 
+  - "Cancelled" (Admin / Project Management)
+<br><br>
+- "In Production": Can be changed to:
+  - "To Be Approved"
+  - "Awaiting Clarification"
+  - "On-Hold" (Admin / Project Management) 
+  - "Cancelled" (Admin / Project Management)
+<br><br>
+- "To Be Approved": Can only be changed by Admin / Project Management to:
+  - "Approved"
+  - "Edits Required"
+  - "On-Hold"
+  - "Cancelled"
+<br><br>
+- "Edits Required": Can be changed to:
+  - "In Production"
+  - "To Be Approved"
+  - "On-Hold" (Admin / Project Management) 
+  - "Cancelled" (Admin / Project Management)
+<br><br>
+- "Awaiting Clarification": Can be changed to:
+  - "In Production"
+  - "On-Hold" (Admin / Project Management) 
+  - "Cancelled" (Admin / Project Management)
+<br><br> 
+- "Approved": Can be changed to:
+  - "Edits Required" (Admin / Project Management)
+  - "Completed"
+<br><br>
+- "Completed": Can only be changed by Admin / Project Management to:
+  - "In Production"
+  - "Edits Required"
+<br><br>
+- "On-Hold" or "Cancelled": Can only be changed by Admin / Project Management to:
+  - "In Production"
+<br><br><br>
+
+**Limit**: When a new Job Status is added via Admin. The App owner has to reconfigure the workflow manually to fit in the new Status.
 
 ## Calendar
-- Jobs in Month Tab are color-coded according to their respective parent projects.
+- "Upcoming" tab: Shows Jobs that are due in the next 7 days.
+- "Overdue" tab: Shows Jobs that are overdue.
+- "Month" tab: Shows Due dates of Jobs on a calendar.
+  - Jobs in Month Tab are color-coded according to their respective parent projects.
+
+# Notes
+- You can quickly navigate to the Job that a Note is attached to and the Employee that authors the note. 
+- It includes "File" field for adding attachments.
+- It also includes "Link" field for adding external links. 

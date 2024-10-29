@@ -1,8 +1,27 @@
+# Table of Contents
+- [Roles](#roles)
+  - [Admin Role](#admin-role)
+    - [Check if you have Admin Role](#check-if-you-have-admin-role)
+    - [Admin View](#admin-view)
+    - [Roles / Statuses / Types](#roles--statuses--types)
+    - [Duplicate Email Check](#duplicate-email-check)
+    - [Auto-assign and auto-remove Direct Reports of existing users](#auto-assign-and-auto-remove-direct-reports-of-existing-users)
+  - [Human Resources Role](#human-resources-role)
+  - [Project Management Role](#project-management-role)
+- [Employees](#employees)
+  - [Profile Images](#profile-images)
+- [Projects](#projects)
+- [Jobs](#jobs)
+  - [Features](#features)
+  - [Workflow](#workflow)
+  - [Calendar](#calendar)
+- [Notes](#notes)
+
 # Roles
 ## Admin Role
 Users with Admin role have access to all the options other roles have and more.
 
-### Check if you have Admin role
+### Check if you have Admin Role
 - Method 1: Check in the "Employees" view.
 - Method 2: Check if you have the "Admin View" option in the menu.
 

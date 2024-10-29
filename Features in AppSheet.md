@@ -6,8 +6,10 @@
     - [Roles / Statuses / Types](#roles--statuses--types)
     - [Duplicate Email Check](#duplicate-email-check)
     - [Auto-assign and auto-remove Direct Reports of existing users](#auto-assign-and-auto-remove-direct-reports-of-existing-users)
+    - [Projects / Jobs / Notes](#projects--jobs--notes)
   - [Human Resources Role](#human-resources-role)
   - [Project Management Role](#project-management-role)
+  - [Other Roles](#other-roles)
 - [Employees](#employees)
   - [Profile Images](#profile-images)
 - [Projects](#projects)
@@ -16,6 +18,7 @@
   - [Workflow](#workflow)
   - [Calendar](#calendar)
 - [Notes](#notes)
+  - [Attachment Files](#attachment-files)
 
 # Roles
 ## Admin Role
@@ -56,6 +59,9 @@ Users with Admin role have access to all the options other roles have and more.
 - When the user is deleted, he will be removed from the Manager's "Direct Reports" list. The existing Manager will receive an email about the removal. 
 - **Limit**: Employees who has been edited with a new "Direct Manager" value will automatically update their new managers' information. However, their old managers will still have "Direct Reports" not up-to-date. 
 
+### Projects / Jobs / Notes
+- Admin users have full control over adding, modifying and removing Projects / Jobs / Notes which other Roles are restricted to only adding new items.
+
 ## Human Resources Role
 - Users with "Human Resources" role can edit the employees' information (except Role which is only editable by Admins).
 
@@ -67,6 +73,11 @@ Users with Admin role have access to all the options other roles have and more.
 - They can create new Jobs and assign them to users.
   - These users can also edit more of the Jobs' information after creation. 
   - Jobs with "Parent Project State" as "Inactive" can't have their statuses changed. Their information can't be changed. They need to have their parent Projects activated again. 
+
+## Other Roles
+- Other roles are quite restricted.
+- They can edit the certain statuses of the Job.
+- They can add new Notes.
 
 # Employees
 - You can quickly navigate to the "Projects" that the Employee owns, the Jobs that the Employee is assigned to and the Notes that they have provided for certain Jobs.
@@ -156,5 +167,8 @@ Users with Admin role have access to all the options other roles have and more.
 
 # Notes
 - You can quickly navigate to the Job that a Note is attached to and the Employee that authors the note. 
-- It includes "File" field for adding attachments.
 - It also includes "Link" field for adding external links. 
+
+## Attachment Files
+- Notes include "File" field for adding attachments.
+- When a Note with an attached file is deleted. The file is also deleted from the database.
